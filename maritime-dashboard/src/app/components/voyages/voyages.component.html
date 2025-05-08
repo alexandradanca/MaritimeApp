@@ -1,0 +1,75 @@
+<h2 class="page-title">Voyages Overview</h2>
+
+<mat-card class="chart-card">
+  <h3 class="section-title">Voyages per Ship</h3>
+  <canvas baseChart
+    [data]="chartData"
+    [type]="'bar'"
+    [options]="{ responsive: true }">
+  </canvas>
+</mat-card>
+
+<mat-card class="form-card">
+  <h3 class="section-title">Add New Voyage</h3>
+  <form (ngSubmit)="addVoyage()">
+    <mat-form-field appearance="fill">
+      <mat-label>Ship</mat-label>
+      <input matInput [(ngModel)]="newVoyage.ship" name="Ship" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Departure Port</mat-label>
+      <input matInput [(ngModel)]="newVoyage.departurePort" name="DeparturePort" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Arrival Port</mat-label>
+      <input matInput [(ngModel)]="newVoyage.arrivalPort" name="ArrivalPort" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [(ngModel)]="newVoyage.date" name="Date" required />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Add</button>
+  </form>
+</mat-card>
+
+<mat-card class="list-card">
+  <h3 class="section-title">Voyage List</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let voyage of voyages">
+      <ng-container *ngIf="editingVoyage as edit; else showView">
+        <div *ngIf="edit.id === voyage.id">
+          <mat-form-field appearance="fill">
+            <mat-label>Ship</mat-label>
+            <input matInput [(ngModel)]="edit.ship" name="EditShip" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Departure</mat-label>
+            <input matInput [(ngModel)]="edit.departurePort" name="EditDeparture" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Arrival</mat-label>
+            <input matInput [(ngModel)]="edit.arrivalPort" name="EditArrival" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input matInput [(ngModel)]="edit.date" name="EditDate" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveEdit(edit)">Save</button>
+          <button mat-stroked-button (click)="cancelEdit()">Cancel</button>
+        </div>
+      </ng-container>
+
+      <ng-template #showView>
+        <div>
+          {{ voyage.ship }}: {{ voyage.departurePort }} → {{ voyage.arrivalPort }} on {{ voyage.date }}
+          <button mat-icon-button color="accent" (click)="startEdit(voyage)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteVoyage(voyage.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </ng-template>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

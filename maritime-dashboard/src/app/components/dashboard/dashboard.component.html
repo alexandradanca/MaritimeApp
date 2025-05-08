@@ -1,0 +1,34 @@
+<mat-sidenav-container class="dashboard-container">
+  <mat-sidenav mode="side" opened class="dashboard-sidenav">
+    <div class="logo">
+      <mat-icon class="logo-icon">sailing</mat-icon>
+      <h3>MaritimeApp</h3>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/ships" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>directions_boat</mat-icon>
+        <span>Ships</span>
+      </a>
+      <a mat-list-item routerLink="/ports" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>anchor</mat-icon>
+        <span>Ports</span>
+      </a>
+      <a mat-list-item routerLink="/voyages" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>travel_explore</mat-icon>
+        <span>Voyages</span>
+      </a>
+      <a mat-list-item routerLink="/countries" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <mat-icon>language</mat-icon>
+        <span>Countries</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="dashboard-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

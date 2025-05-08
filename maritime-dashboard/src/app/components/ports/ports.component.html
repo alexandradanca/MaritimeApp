@@ -1,0 +1,59 @@
+<h2 class="page-title">Ports Overview</h2>
+
+<mat-card class="chart-card">
+  <h3 class="section-title">Ports per Country</h3>
+  <canvas baseChart
+    [data]="chartData"
+    [type]="'bar'"
+    [options]="{ responsive: true }">
+  </canvas>
+</mat-card>
+
+<mat-card class="form-card">
+  <h3 class="section-title">Add New Port</h3>
+  <form (ngSubmit)="addPort()">
+    <mat-form-field appearance="fill">
+      <mat-label>Port Name</mat-label>
+      <input matInput [(ngModel)]="newPort.name" name="PortName" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput [(ngModel)]="newPort.country" name="Country" required />
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Add</button>
+  </form>
+</mat-card>
+
+<mat-card class="list-card">
+  <h3 class="section-title">Port List</h3>
+  <mat-list>
+    <mat-list-item *ngFor="let port of ports">
+      <ng-container *ngIf="editingPort as edit; else defaultView">
+        <div *ngIf="edit.id === port.id">
+          <mat-form-field appearance="fill">
+            <mat-label>Port Name</mat-label>
+            <input matInput [(ngModel)]="edit.name" name="EditPortName" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput [(ngModel)]="edit.country" name="EditCountry" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveEdit(edit)">Save</button>
+          <button mat-stroked-button (click)="cancelEdit()">Cancel</button>
+        </div>
+      </ng-container>
+
+      <ng-template #defaultView>
+        <div>
+          {{ port.name }} ({{ port.country }})
+          <button mat-icon-button color="accent" (click)="startEdit(port)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deletePort(port.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </ng-template>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

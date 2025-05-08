@@ -1,0 +1,46 @@
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px 20px;
+    color: #fff;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #0077b6;
+  }
+  
+  .chart-card, .form-card, .list-card {
+    margin: 20px;
+    padding: 20px;
+    background-color: #e0f7fa;
+  }
+
+  .list-card {
+    background-color: #062e43;
+  }
+  
+  mat-form-field {
+    display: block;
+    margin-bottom: 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  mat-icon {
+    font-size: 20px;
+  }
+  
+  button {
+    margin-left: 8px;
+  }
+  

@@ -1,0 +1,25 @@
+<div class="dashboard-header">
+    <h1>Maritime Dashboard</h1>
+    <p>A summary of maritime data with interactive charts</p>
+  </div>
+  
+  <div class="dashboard-cards">
+    <mat-card class="summary-card">
+      <p class="label">Ships</p>
+      <h2 class="value">{{ totalShips }}</h2>
+    </mat-card>
+    <mat-card class="summary-card">
+      <p class="label">Ports</p>
+      <h2 class="value">{{ totalPorts }}</h2>
+    </mat-card>
+    <mat-card class="summary-card">
+      <p class="label">Voyages</p>
+      <h2 class="value">{{ totalVoyages }}</h2>
+    </mat-card>
+  </div>
+  
+  <mat-card class="overview-card">
+    <h3 class="section-title">Overview</h3>
+    <canvas baseChart [data]="overviewChartData" [type]="'line'"></canvas>
+  </mat-card>
+  

@@ -1,0 +1,95 @@
+:host {
+  display: block;
+  height: 100vh;
+  background-color: #031926;
+  color: #e0f7fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-container {
+  height: 100%;
+}
+
+.dashboard-sidenav {
+  width: 220px;
+  background-color: #062e43;
+  color: #fff;
+  padding-top: 16px;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo-icon {
+  font-size: 40px;
+  color: #00b4d8;
+}
+
+mat-nav-list a {
+  color: #ffffff;
+  font-weight: 500;
+  padding-left: 16px;
+  text-decoration: none;
+}
+
+mat-nav-list a.active {
+  background-color: #004e6d;
+  color: #fff;
+}
+
+mat-nav-list mat-icon {
+  margin-right: 12px;
+}
+
+.dashboard-content {
+  padding: 24px;
+  background-color: #021018;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 8px;
+  color: #ffffff;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: #90caf9;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.summary-card {
+  flex: 1;
+  background-color: #003049;
+  color: #ffffff;
+  padding: 16px;
+  text-align: center;
+}
+
+.summary-card .label {
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.summary-card .value {
+  font-size: 32px;
+  margin: 4px 0 0;
+}
+
+.overview-card {
+  margin-top: 32px;
+  padding: 24px;
+  background-color: #002137;
+}
+
+.section-title {
+  color: #90caf9;
+  margin-bottom: 16px;
+}
